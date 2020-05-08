@@ -17,21 +17,25 @@ $.when($.ready).then(function () {
     $("#home-nav").on('click', e => {
         e.preventDefault();
         $("#home").get(0).scrollIntoView({behavior: "smooth"});
+        history.replaceState(undefined, undefined, "#home")
     });
 
     $("#services-nav").on('click', e => {
         e.preventDefault();
         $("#services").get(0).scrollIntoView({behavior: "smooth", block: "center"});
+        history.replaceState(undefined, undefined, "#services")
     });
 
     $("#contact-nav").on('click', e => {
         e.preventDefault();
         $("#contact").get(0).scrollIntoView({behavior: "smooth"});
+        history.replaceState(undefined, undefined, "#contact")
     });
 
     $("#get-quote-btn").on('click', e => {
         e.preventDefault();
         $("#contact").get(0).scrollIntoView({behavior: "smooth"});
+        history.replaceState(undefined, undefined, "#contact")
     })
 });
 
@@ -46,7 +50,7 @@ function handleEmailSent(btn, form, success) {
 
 function handleBackgroundVideo() {
     $("#space-video").on('timeupdate', function(e) {
-        if (e.timeStamp > 5400) {
+        if (e.timeStamp > 5300) {
             this.pause();
 
             this.classList.add("dim");
