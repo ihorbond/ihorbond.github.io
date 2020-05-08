@@ -1,0 +1,68 @@
+body {
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+  background-color: #f8f9fa; }
+
+.codespa-secondary {
+  color: #04344c; }
+
+.dim {
+  filter: brightness(0.5); }
+
+.pointer {
+  cursor: pointer; }
+
+#code {
+  font-weight: 500;
+  color: #048cbc; }
+
+#space {
+  font-weight: 300;
+  color: #04344c; }
+
+#code, #space {
+  vertical-align: bottom; }
+
+#title {
+  display: flex;
+  position: absolute;
+  min-width: 100%;
+  top: 14%;
+  color: white;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center; }
+
+#space-video {
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  transition: all 1s ease; }
+
+#navbar {
+  display: flex; }
+
+.navbar-nav .active, .navbar-nav .nav-link:hover {
+  color: #048cbc !important; }
+
+.navbar-nav a {
+  color: #04344c !important; }
+
+.navbar-nav li {
+  font-weight: 500;
+  padding-left: 20px; }
+
+#features {
+  margin-top: -20px; }
+  #features .card {
+    min-height: 310px; }
+
+#services, #vision, #contact {
+  background-color: white; }
+
+#vision-text {
+  margin: auto 0; }
+
+.icon i {
+  color: #048cbc;
+  font-size: 6rem; }
