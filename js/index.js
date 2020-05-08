@@ -8,12 +8,9 @@ $.when($.ready).then(function () {
         btn.disabled = true;
         btn.innerHTML = '<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>';
         emailjs.sendForm('default_service', 'contact_form', this).then(res => {
-            console.log("email sent");
-            btn.disabled = false;
-            btn.innerHTML = 'Send <i class="fa fa-paper-plane-o" aria-hidden="true"></i>'
-            this.reset();
+            handleEmailSent(btn, this, true);
         }, err => {
-            console.log("error sending email");
+            handleEmailSent(btn, this, false);
         });
     })
 
@@ -31,7 +28,21 @@ $.when($.ready).then(function () {
         e.preventDefault();
         $("#contact").get(0).scrollIntoView({behavior: "smooth"});
     });
+
+    $("#get-quote-btn").on('click', e => {
+        e.preventDefault();
+        $("#contact").get(0).scrollIntoView({behavior: "smooth"});
+    })
 });
+
+function handleEmailSent(btn, form, success) {
+    if(success) form.reset();
+    btn.innerHTML = success ? '<span class="text-success"> Message sent! </span>' : '<span class="text-danger"> There was an error. Please try again </span>'
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Send <i class="fa fa-paper-plane-o" aria-hidden="true"></i>'
+    }, 2500)
+}
 
 function handleBackgroundVideo() {
     $("#space-video").on('timeupdate', function(e) {
