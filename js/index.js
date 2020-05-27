@@ -1,8 +1,14 @@
 
 $.when($.ready).then(function () {
+    $(window).on('scroll', function () {
+        this.pageYOffset > 50
+            ? $("#navbar").addClass('bg-light')
+            : $("#navbar").removeClass('bg-light');
+    });
+
     handleBackgroundVideo();
 
-    $("#contact-form").on('submit', function(e) {
+    $("#contact-form").on('submit', function (e) {
         e.preventDefault();
         const btn = $('#send-email-btn').get(0);
         btn.disabled = true;
@@ -16,31 +22,31 @@ $.when($.ready).then(function () {
 
     $("#home-nav").on('click', e => {
         e.preventDefault();
-        $("#home").get(0).scrollIntoView({behavior: "smooth"});
+        $("#home").get(0).scrollIntoView({ behavior: "smooth" });
         history.replaceState(undefined, undefined, "#home")
     });
 
     $("#services-nav").on('click', e => {
         e.preventDefault();
-        $("#services").get(0).scrollIntoView({behavior: "smooth", block: "center"});
+        $("#services").get(0).scrollIntoView({ behavior: "smooth", block: "center" });
         history.replaceState(undefined, undefined, "#services")
     });
 
     $("#contact-nav").on('click', e => {
         e.preventDefault();
-        $("#contact").get(0).scrollIntoView({behavior: "smooth"});
+        $("#contact").get(0).scrollIntoView({ behavior: "smooth" });
         history.replaceState(undefined, undefined, "#contact")
     });
 
     $("#get-quote-btn").on('click', e => {
         e.preventDefault();
-        $("#contact").get(0).scrollIntoView({behavior: "smooth"});
+        $("#contact").get(0).scrollIntoView({ behavior: "smooth" });
         history.replaceState(undefined, undefined, "#contact")
     })
 });
 
 function handleEmailSent(btn, form, success) {
-    if(success) form.reset();
+    if (success) form.reset();
     btn.innerHTML = success ? '<span class="text-success"> Message sent! </span>' : '<span class="text-danger"> There was an error. Please try again </span>'
     setTimeout(() => {
         btn.disabled = false;
@@ -49,19 +55,19 @@ function handleEmailSent(btn, form, success) {
 }
 
 function handleBackgroundVideo() {
-    $("#space-video").on('timeupdate', function(e) {
-        if (e.timeStamp > 5300) {
+    $("#space-video").on('timeupdate', function (e) {
+        if (e.timeStamp > 5000) {
             this.pause();
 
             this.classList.add("dim");
 
             $("#title").css("display", "flex")
-            .hide()
-            .fadeIn();
+                .hide()
+                .fadeIn();
 
             $("#navbar").css("display", "flex")
-            .hide()
-            .slideDown();
+                .hide()
+                .slideDown();
 
             // $('[data-spy="scroll"]').each(function () {
             //     var $spy = $(this).scrollspy('refresh')
