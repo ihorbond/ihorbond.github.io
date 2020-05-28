@@ -27,7 +27,7 @@ body {
   display: none;
   position: absolute;
   min-width: 100%;
-  top: 14%;
+  top: 13%;
   color: white;
   flex-flow: column;
   align-items: center;
@@ -66,3 +66,21 @@ body {
 .icon i {
   color: #048cbc;
   font-size: 6rem; }
+
+  @media screen and (max-width: 500px) {
+    #title {
+      top: 2%;
+    }
+  }
+
+  @media screen and (min-width: 500px) and (max-width: 800px) {
+    #title {
+      top: 5%;
+    }
+  }
+
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    #title {
+      top: 9%;
+    }
+  }
