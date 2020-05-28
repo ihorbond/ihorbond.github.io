@@ -56,7 +56,6 @@ function onWindowResize(e) {
     const btn = $("#get-quote-btn");
     const windowWidth = $(window).width();
     if (windowWidth < 500) {
-        console.log("hit");
         btn.removeClass();
         btn.addClass('btn btn-outline-light m-2 btn-sm');
     }
